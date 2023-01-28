@@ -72,6 +72,7 @@ public class StudentController {
 			@RequestParam("firstName") String firstName,@RequestParam("lastName") String lastName,@RequestParam("course") String course,@RequestParam("country") String country) {
 
 		System.out.println(id);
+		System.out.println(" ==================================================");
 		Student theStudent;
 		if(id!=0)
 		{

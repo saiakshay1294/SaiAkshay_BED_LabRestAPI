@@ -12,17 +12,20 @@ import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
 public class DomainUserDetails implements UserDetails {
-	
+
 	private final User user;
 
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return this.user.getRoles()
-						.stream()
-						.map(Role::getName)
-						.map(SimpleGrantedAuthority::new)
-						.collect(toSet());
+		Collection<GrantedAuthority> authorities = this.user.getRoles().stream().map(Role::getName)
+				.map(SimpleGrantedAuthority::new).collect(toSet());
 		
+		authorities.stream().forEach(authority -> System.out.println(authority.getAuthority()));
+		
+		return authorities;
+		
+		
+
 	}
 
 	@Override
