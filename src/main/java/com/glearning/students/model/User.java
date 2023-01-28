@@ -28,18 +28,17 @@ public class User {
 	@Column(name = "password")
 	private String password;
 
-	@ManyToMany(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+	@ManyToMany(mappedBy = "users", cascade = {CascadeType.PERSIST, CascadeType.MERGE}, fetch = FetchType.EAGER)
 	private Set<Role> roles = new HashSet<>();
 
 	private User() {
 		super();
 	}
 
-	public User(String username, String password, Set<Role> roles) {
+	public User(String username, String password) {
 		super();
 		this.username = username;
 		this.password = password;
-		this.roles = roles;
 	}
 	
 	public void addRole(Role role) {
