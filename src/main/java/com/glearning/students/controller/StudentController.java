@@ -27,6 +27,7 @@ public class StudentController {
 
 	@RequestMapping("/list")
 	public String listStudents(Model theModel) {
+		System.out.println(" Inside the list controller :::: ");
 
 	
 		// get Students details from db
