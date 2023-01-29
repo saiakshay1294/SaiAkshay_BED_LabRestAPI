@@ -50,7 +50,7 @@ public class WebApplicationSecurityConfig extends WebSecurityConfigurerAdapter {
 	            .and()
 	            .exceptionHandling().accessDeniedPage("/student/403")
 	            .and()
-	            .cors().and().csrf().and().headers().frameOptions().disable();
+	            .cors().disable().csrf().disable().headers().frameOptions().disable();
 	    }
 
 
